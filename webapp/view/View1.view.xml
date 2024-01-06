@@ -1,0 +1,63 @@
+<mvc:View controllerName="sap.com.product3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"  displayBlock="true"
+    xmlns="sap.m" 
+	xmlns:fb="sap.ui.comp.filterbar" >
+    <Page id="page" title="{i18n>title}">
+        <content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="StudentID" label="StudentID" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="StudentID"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="StudentName" label="StudentName" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="StudentName"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Class" label="Class" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+									<Input id="Class"/>	
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+        <Table  items="{oSchoolJSONModel>/StudentDetails}" id="StudentTable">
+		
+		<columns>
+			<Column>
+				<Text text="Student ID" />
+			</Column>
+			<Column>
+				<Text text="Student Name" />
+			</Column>
+			<Column>
+				<Text text="Class" />
+			</Column>
+
+			<Column>
+				<Text text="Section" />
+			</Column>
+
+            <Column>
+				<Text text="House" />
+			</Column>
+
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" type="Navigation" press="onRowPress">
+				<cells>
+					<Text text="{oSchoolJSONModel>StudentID}"  />
+					<Text text="{oSchoolJSONModel>StudentName}" />
+					<Text text="{oSchoolJSONModel>Class}" />
+					<Text text="{oSchoolJSONModel>Section}" />
+                    <Text text="{oSchoolJSONModel>House}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+</Table>
+        </content>
+
+    </Page>
+</mvc:View>

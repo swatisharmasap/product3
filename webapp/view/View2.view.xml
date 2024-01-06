@@ -1,0 +1,58 @@
+
+<mvc:View controllerName="sap.com.product3.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Student Details"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+<Label text="StudentID" required="true"/>
+<Input id="StudentID" placeholder="enter Student's ID" liveChange="onLiveChangeStudentID"/>
+
+<Label text="StudentName" required="true"/>
+<Input id="StudentName" placeholder="enter Student's Name" liveChange="onLiveChangeStudentName" />
+
+<Label text="Class" required="true"/>
+<Input id="Class" placeholder="enter the Class in which student study" liveChange="onLiveChangeClass"/>
+
+<Label text="Section" required="true"/>
+<Input id="Section" placeholder="enter the class's section" liveChange="onLiveChangeSection"/>
+
+<Label text="House" required="true"/>
+<!-- <Input id="House" placeholder="enter the student's House" liveChange="onLiveChangeHouse"/> -->
+
+<ComboBox id="House"
+items="{ 
+    path:'oStudentModel>/House'
+ }" >
+ <core:Item key = "{oStudentModel>HouseID}" text="{oStudentModel>HouseName}"/>
+ </ComboBox>
+			</f:content>
+		</f:SimpleForm>
+</content>
+<footer  >
+        <OverflowToolbar>
+        <ToolbarSpacer/>
+        <Button text="Save" press="onSave"   type="Accept" />
+        <Button text="Clear" press="onClear" type="Reject" />
+
+</OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
